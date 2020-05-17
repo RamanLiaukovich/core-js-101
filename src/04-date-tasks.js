@@ -55,14 +55,15 @@ function parseDataFromIso8601(value) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
-function isLeapYear(/* date */) {
-  throw new Error('Not implemented');
+function isLeapYear(date) {
+  const year = date.toString().split(' ')[3];
+  return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
 }
 
 
 /**
- * Returns the string represention of the timespan between two dates.
- * The format of output string is "HH:mm:ss.sss"
+   * Returns the string represention of the timespan between two dates.
+   * The format of output string is "HH:mm:ss.sss"
  *
  * @param {date} startDate
  * @param {date} endDate
